@@ -1,18 +1,15 @@
-require 'money'
+describe 'One number' do
+  let(:number) { BigDecimal.new(1.82380.to_s) }
 
-describe 'Different stuff' do
-  let(:rate) { BigDecimal.new(0.82380.to_s) }
-
-  it 'Should print 1/rate' do
-    puts (1/rate).inspect
-    puts (1/rate).to_s
+  it '1/number should be correct' do
+    expect((1/number).to_s).to eq('0.548305735277991007785941441E0')
   end
+end
 
-  it 'Should print 100 GBP exchanged to EUR via bank' do
-    bank = Money::Bank::VariableExchange.new
-    bank.set_rate(:EUR, :GBP, rate)
-    bank.set_rate(:GBP, :EUR, 1/rate)
+describe 'Another number' do
+  let(:number) { BigDecimal.new(0.82380.to_s) }
 
-    puts bank.exchange_with(Money.new(100, :GBP), :EUR).inspect
+  it '1/number should be correct' do
+    expect((1/number).to_s).to eq('0.1213886866E1')
   end
 end
