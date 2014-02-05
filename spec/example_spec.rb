@@ -1,3 +1,5 @@
+require 'bigdecimal'
+
 describe 'One number' do
   let(:number) { BigDecimal.new(1.82380.to_s) }
 
